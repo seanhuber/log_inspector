@@ -1,0 +1,26 @@
+<div class='sr-log-panel'>
+  <div class='panel'>
+    <ul class='folder-list'>
+      <li class='directory' data-full-path="<%= @directory %>">
+        <span class='chevron glyphicon glyphicon-chevron-down'></span>
+        <span class='glyphicon glyphicon-folder-close'></span>
+        <span class='basename'><%= File.basename(@directory) %></span>
+        <ul class='loading' style='display: block;'><li style='color: gray;'>Loading...</li></ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class='sr-log-panel right'>
+  <div class='panel file-contents throbbing'>
+    Click a file in the left pane to view its contents.
+  </div>
+</div>
+
+<script>
+  $(window).resize(function() {
+    $('.panel').height($(window).height() - $('.panel').position().top - 10); // 10px padding
+  });
+
+  $('body').css({ 'overflow-y': 'hidden' });
+  $(window).trigger('resize');
+</script>

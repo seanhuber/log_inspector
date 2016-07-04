@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ html {
+   height: 100%;
+   width: 100%;
+   min-width: 100%;
+   min-height: 100%;
+ }
+
+ body {
+   height: 100%;
+   width: 100%;
+   padding: 0;
+   margin: 0;
+   background-color: #e2e2e2 !important;
+   background-repeat: repeat;
+ }
+
+ /*.panel {
+   background-color: white;
+ }*/
+
+ .sr-log-panel {
+   float: left;
+   width: 25%;
+   padding: 0 5px;
+   margin-top: 10px;
+ }
+
+ .sr-log-panel.right {
+   width: 75%;
+ }
+
+ .sr-log-panel > .panel {
+   overflow-y: auto;
+ }
+
+ .sr-log-panel ul.folder-list {
+   padding-left: 5px;
+ }
+
+ .sr-log-panel ul.folder-list ul {
+   padding-left: 5px;
+ }
+
+ .sr-log-panel ul.folder-list li {
+   list-style-type: none;
+   margin: 1px 0;
+   word-break: break-all;
+   cursor: pointer;
+ }
+
+ .sr-log-panel ul.folder-list li:hover > span.basename {
+   text-decoration: underline;
+ }
+
+ .sr-log-panel ul.folder-list li .glyphicon-file {
+   color: rgb(208, 208, 208) !important; /* light gray */
+ }
+
+ .sr-log-panel ul.folder-list li.directory .glyphicon {
+   color: rgb(8, 117, 197); /* blueish */
+ }
+
+ .sr-log-panel ul.folder-list .basename {
+   padding: 2px 5px;
+   border-radius: 3px;
+ }
+
+ .sr-log-panel ul.folder-list span.chevron {
+   color: rgb(145, 145, 145) !important; /* grayish */
+   cursor: pointer;
+   width: 15px;
+   display: inline-block;
+   text-align: right;
+ }
+
+ .sr-log-panel ul.folder-list li.directory ul {
+   display: none;
+ }
+
+ .sr-log-panel ul.folder-list li.selected > .basename {
+   color: white;
+   background-color: rgb(8, 117, 197); /* blueish */
+ }
+
+
+ .sr-log-panel .file-contents {
+   text-align: center;
+ }
+
+ .sr-log-panel .file-contents p,
+ .sr-log-panel .file-contents pre,
+ .sr-log-panel .file-contents label {
+   text-align: left;
+   margin: 0;
+ }
+
+ .sr-log-panel .file-contents.throbbing {
+   padding-top: 100px;
+   color: darkred;
+ }
+
+ .sr-log-panel .file-contents .file-details {
+   display: inline-block;
+   margin-bottom: 10px;
+ }
+
+ .sr-log-panel .file-contents .file-details label {
+   min-width: 50px;
+   font-size: 12px;
+   font-weight: normal;
+ }
+
+ .sr-log-panel .file-contents hr {
+   margin: 5px 0;
+ }
+
+ .sr-log-panel .file-contents pre {
+   font-size: 10px;
+   background-color: white;
+   padding: 10px 5px;
+   border: none;
+ }
