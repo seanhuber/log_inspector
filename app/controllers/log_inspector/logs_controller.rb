@@ -1,12 +1,11 @@
 module LogInspector
   class LogsController < ApplicationController
     def dir_contents
-      raise ':path param missing' unless params[:path].present?
-      @directory = params[:path]
+      @directory = params.require :path
       raise "#{@directory} is not a directory" unless File.directory?( @directory )
 
       @dir_contents = []
-      Dir.glob( "#{escape_glob(@directory)}/*" ) do |dir|
+      Dir.glob( "#{@directory.gsub(/[\\\{\}\[\]\*\?]/){|x| "\\"+x}}/*" ) do |dir|
         @dir_contents << {
           is_directory: File.directory?(dir),
           name:         File.basename(dir),
@@ -21,8 +20,8 @@ module LogInspector
     end
 
     def file_contents
-      fp = params[:filepath]
-      raise "#{fp} is not a file." unless File.file?(fp)
+      fp = params.require :filepath
+      raise StandardError, "#{fp} is not a file." unless File.file?(fp)
       @file_contents = {
         basename: File.basename( fp ),
         fullpath: fp,
@@ -31,12 +30,6 @@ module LogInspector
       }
       @truncated = @file_contents[:lines] > 500 && !params[:show_all].present?
       @file_contents[:content] = @truncated ? %x{tail -n 500 "#{fp}"} : File.read( fp )
-    end
-
-    private
-
-    def escape_glob(s)
-      s.gsub(/[\\\{\}\[\]\*\?]/) { |x| "\\"+x }
     end
   end
 end
