@@ -23,4 +23,42 @@
 
   $('body').css({ 'overflow-y': 'hidden' });
   $(window).trigger('resize');
+
+  $.get('<%= logs_dir_contents_path %>', $.param({path: "<%= @directory %>"}));
+
+  $('.folder-list').on('click', 'li', function() {
+    $('.folder-list li').removeClass('selected');
+    $(this).addClass('selected');
+
+    if ( $(this).hasClass('file') ) {
+      getFileContents( $(this).data('full-path') );
+    }
+    return false;
+  });
+
+  function getFileContents( filepath ) {
+    $('.file-contents').addClass('throbbing');
+    $.get('<%= logs_file_contents_path %>', $.param({filepath: filepath}));
+  }
+
+  $('.folder-list').on('click', 'li.directory > .chevron', function() {
+    if ( $(this).hasClass('glyphicon-chevron-right') ) {
+      $(this).switchClass( 'glyphicon-chevron-right', 'glyphicon-chevron-down' );
+      var sub_list = $(this).siblings('ul');
+      sub_list.show();
+      if ( sub_list.hasClass('loading') ) {
+        $.get('<%= logs_dir_contents_path %>', $.param({path: $(this).parent().attr('data-full-path')}));
+      }
+    } else if ( $(this).hasClass('glyphicon-chevron-down') ) {
+      $(this).switchClass('glyphicon-chevron-down', 'glyphicon-chevron-right');
+      $(this).siblings('ul').hide();
+    }
+    return false;
+  });
+
+  $('.sr-log-panel.right').on('click', '.display-all-lines', function() {
+    $('.file-contents').addClass('throbbing');
+    $.get( $(this).attr('href') );
+    return false;
+  });
 </script>

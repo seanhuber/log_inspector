@@ -1,0 +1,20 @@
+<% if @dir_contents.empty? -%>
+  <li>No contents.</li>
+<% else -%>
+  <% @dir_contents.each do |file| -%>
+    <% if file[:is_directory] -%>
+      <li class='directory <%= 'classified' if file[:classified] %>' data-full-path="<%= file[:fullpath] %>">
+        <span class='chevron glyphicon glyphicon-chevron-right'></span>
+        <span class='glyphicon glyphicon-folder-close'></span>
+        <span class='basename'><%= file[:name] %></span>
+        <ul class='loading'><li style='color: gray;'>Loading...</li></ul>
+      </li>
+    <% else -%>
+      <li class='file' data-full-path="<%= file[:fullpath] %>">
+        <span class='chevron'></span>
+        <span class='glyphicon glyphicon-file'></span>
+        <span class='basename'><%= file[:name] %></span>
+      </li>
+    <% end -%>
+  <% end -%>
+<% end %>
