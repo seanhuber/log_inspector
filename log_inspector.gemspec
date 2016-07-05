@@ -9,15 +9,14 @@ Gem::Specification.new do |s|
   s.version     = LogInspector::VERSION
   s.authors     = ["Sean Huber"]
   s.email       = ["seanhuber@seanhuber.com"]
-  s.homepage    = "http://asdf.com"
-  s.summary     = "asdf`: Summary of LogInspector."
-  s.description = "asdf: Description of LogInspector."
+  s.homepage    = "https://github.com/seanhuber/log_inspector"
+  s.summary     = "Rails Engine with routes for displaying logfile contents."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.6"
+  s.add_dependency "rails", "~> 4.0"
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "sqlite3", "~> 0"
 end
