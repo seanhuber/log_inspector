@@ -14,58 +14,58 @@ body {
   background-repeat: repeat;
 }
 
-.sr-log-panel {
+.sh-log-panel {
   float: left;
   width: 25%;
   padding: 0 5px;
   margin-top: 10px;
 }
 
-.sr-log-panel.right {
+.sh-log-panel.right {
   width: 75%;
 }
 
-.sr-log-panel > .panel {
+.sh-log-panel > .panel {
   overflow-y: auto;
 }
 
-.sr-log-panel ul.loading > li {
+.sh-log-panel ul.loading > li {
   color: gray;
 }
 
-.sr-log-panel ul.folder-list {
+.sh-log-panel ul.folder-list {
   padding-left: 5px;
 }
 
-.sr-log-panel ul.folder-list ul {
+.sh-log-panel ul.folder-list ul {
   padding-left: 5px;
 }
 
-.sr-log-panel ul.folder-list li {
+.sh-log-panel ul.folder-list li {
   list-style-type: none;
   margin: 1px 0;
   word-break: break-all;
   cursor: pointer;
 }
 
-.sr-log-panel ul.folder-list li:hover > span.basename {
+.sh-log-panel ul.folder-list li:hover > span.basename {
   text-decoration: underline;
 }
 
-.sr-log-panel ul.folder-list li .glyphicon-file {
+.sh-log-panel ul.folder-list li .glyphicon-file {
   color: rgb(208, 208, 208) !important; /* light gray */
 }
 
-.sr-log-panel ul.folder-list li.directory .glyphicon {
+.sh-log-panel ul.folder-list li.directory .glyphicon {
   color: rgb(8, 117, 197); /* blueish */
 }
 
-.sr-log-panel ul.folder-list .basename {
+.sh-log-panel ul.folder-list .basename {
   padding: 2px 5px;
   border-radius: 3px;
 }
 
-.sr-log-panel ul.folder-list span.chevron {
+.sh-log-panel ul.folder-list span.chevron {
   color: rgb(145, 145, 145) !important; /* grayish */
   cursor: pointer;
   width: 15px;
@@ -73,57 +73,57 @@ body {
   text-align: right;
 }
 
-.sr-log-panel ul.folder-list li.directory ul:not(.initial) {
+.sh-log-panel ul.folder-list li.directory ul:not(.initial) {
   display: none;
 }
 
-.sr-log-panel ul.initial {
+.sh-log-panel ul.initial {
   display: block;
 }
 
-.sr-log-panel ul.folder-list li.selected > .basename {
+.sh-log-panel ul.folder-list li.selected > .basename {
   color: white;
   background-color: rgb(8, 117, 197); /* blueish */
 }
 
-.sr-log-panel .file-contents {
+.sh-log-panel .file-contents {
   text-align: center;
 }
 
-.sr-log-panel .file-contents p,
-.sr-log-panel .file-contents pre,
-.sr-log-panel .file-contents label {
+.sh-log-panel .file-contents p,
+.sh-log-panel .file-contents pre,
+.sh-log-panel .file-contents label {
   text-align: left;
   margin: 0;
 }
 
-.sr-log-panel .file-contents.throbbing {
+.sh-log-panel .file-contents.throbbing {
   padding-top: 100px;
   color: darkred;
 }
 
-.sr-log-panel .file-contents .file-details {
+.sh-log-panel .file-contents .file-details {
   display: inline-block;
   margin-bottom: 10px;
 }
 
-.sr-log-panel .file-contents .file-details label {
+.sh-log-panel .file-contents .file-details label {
   min-width: 50px;
   font-size: 12px;
   font-weight: normal;
 }
 
-.sr-log-panel .file-contents hr {
+.sh-log-panel .file-contents hr {
   margin: 5px 0;
 }
 
-.sr-log-panel .file-contents pre {
+.sh-log-panel .file-contents pre {
   font-size: 10px;
   background-color: white;
   padding: 10px 5px;
   border: none;
 }
 
-.sr-log-panel .disp-all-caption {
+.sh-log-panel .disp-all-caption {
   font-size: 11px;
 }

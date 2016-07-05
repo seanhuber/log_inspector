@@ -39,7 +39,7 @@ function intializeLogInspector( dir_contents_url, file_contents_url, root_dir ) 
     return false;
   });
 
-  $('.sr-log-panel.right').on('click', '.display-all-lines', function() {
+  $('.sh-log-panel.right').on('click', '.display-all-lines', function() {
     $('.file-contents').addClass('throbbing');
     $.get( $(this).attr('href') );
     return false;
