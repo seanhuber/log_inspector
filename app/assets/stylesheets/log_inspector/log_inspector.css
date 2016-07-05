@@ -29,6 +29,10 @@ body {
   overflow-y: auto;
 }
 
+.sr-log-panel ul.loading > li {
+  color: gray;
+}
+
 .sr-log-panel ul.folder-list {
   padding-left: 5px;
 }
@@ -69,15 +73,18 @@ body {
   text-align: right;
 }
 
-.sr-log-panel ul.folder-list li.directory ul {
+.sr-log-panel ul.folder-list li.directory ul:not(.initial) {
   display: none;
+}
+
+.sr-log-panel ul.initial {
+  display: block;
 }
 
 .sr-log-panel ul.folder-list li.selected > .basename {
   color: white;
   background-color: rgb(8, 117, 197); /* blueish */
 }
-
 
 .sr-log-panel .file-contents {
   text-align: center;
@@ -115,4 +122,8 @@ body {
   background-color: white;
   padding: 10px 5px;
   border: none;
+}
+
+.sr-log-panel .disp-all-caption {
+  font-size: 11px;
 }

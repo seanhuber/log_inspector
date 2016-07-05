@@ -16,7 +16,7 @@
 <% if @truncated %>
   <p>
     Displaying last 500 lines of <%= @file_contents[:basename] %>.
-    <%= link_to 'Show all lines', {:controller => 'log_inspector/logs', :action => :file_contents, :filepath => @file_contents[:fullpath], :show_all => true}, :class => 'display-all-lines' %> <span style='font-size: 11px;'>(This may respond slowly)</span>
+    <%= link_to 'Show all lines', logs_file_contents_path(filepath: @file_contents[:fullpath], show_all: true), class: 'display-all-lines' %> <span class='disp-all-caption'>(This may respond slowly)</span>
   </p>
 <% end %>
 

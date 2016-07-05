@@ -1,4 +1,4 @@
 var ul = $('li[data-full-path="<%= jq_dirpath(@directory) %>"] > ul.loading');
 
 ul.removeClass('loading');
-ul.html("<%= escape_javascript(render( :partial => 'folder_list' )) %>");
+ul.html("<%= j render partial: 'folder_list' %>");
