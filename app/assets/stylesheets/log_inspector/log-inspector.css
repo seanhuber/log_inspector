@@ -1,0 +1,33 @@
+html.log-inspector-page,
+html.log-inspector-page > body,
+.log-inspector,
+.log-inspector > .tree-pane,
+.log-inspector > .file-pane {
+  height: 100%;
+}
+
+html.log-inspector-page > body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.log-inspector > .tree-pane {
+  width: 400px;
+  float: left;
+}
+
+.log-inspector > .tree-pane > .ui-resizable-handle {
+  background-color: lightgray;
+  right: 0;
+  opacity: 0.5;
+}
+
+.log-inspector > .tree-pane > .ui-resizable-handle:hover {
+  opacity: 1.0;
+}
+
+.log-inspector > .file-pane {
+  overflow-y: auto;
+  padding: 10px;
+}

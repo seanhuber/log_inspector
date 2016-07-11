@@ -10,4 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require log_inspector/folder-tree
 //= require log_inspector/log_inspector
+//= require log_inspector/logs_inspector
