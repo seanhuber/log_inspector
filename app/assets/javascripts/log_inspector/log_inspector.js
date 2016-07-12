@@ -33,7 +33,7 @@
 
         if (data.truncated) {
           var $truncated = $("<div class='truncated'><p>Displaying last 500 lines of "+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span></div>").appendTo($pane);
-          $truncated.find('a').click( function() { that._fileClick(path, true); });
+          $truncated.find('a').click( function() { that._fileClick(path, true); return false; });
         }
 
         if (data.lines == '0') {
