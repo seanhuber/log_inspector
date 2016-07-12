@@ -1,4 +1,4 @@
-require "log_inspector/engine"
+require 'log_inspector/engine'
 
 module LogInspector
 end
