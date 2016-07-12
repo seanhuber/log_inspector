@@ -2,6 +2,8 @@ module LogInspector
   class LogController < ApplicationController
     include ActionView::Helpers::NumberHelper
 
+    before_filter :restrict_access, only: [:file_api]#, :folder_api]
+
     def file_api
       path = ensure_path :file?
 
@@ -27,6 +29,7 @@ module LogInspector
     end
 
     def index
+      @api_token = LogInspector::Encryptor.api_token
       render 'log_inspector/index'
     end
 
@@ -39,6 +42,12 @@ module LogInspector
       path = path.join '/'
       raise ArgumentError, "Bad path: #{path}" unless File.send file_method, path
       path
+    end
+
+    def restrict_access
+      authenticate_or_request_with_http_token do |token, options|
+        LogInspector::Encryptor.api_token token
+      end
     end
   end
 end

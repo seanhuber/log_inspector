@@ -2,6 +2,7 @@
 
 <script>
   $('.log-inspector').logInspector({
+    api_token:  '<%= j LogInspector::Encryptor.api_token %>',
     file_url:   '<%= log_inspector.file_path %>',
     folder_url: '<%= log_inspector.folder_path %>'
   });

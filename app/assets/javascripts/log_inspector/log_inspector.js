@@ -1,6 +1,7 @@
 (function($) {
   $.widget( 'sh.logInspector', {
     options: {
+      api_token:  '', // authorization token passed up as header
       file_url:   '', // file api url
       folder_url: ''  // folder api url
     },
@@ -23,23 +24,30 @@
 
     _fileClick: function(path, all_lines) {
       var that = this;
-      $.get(that.options.file_url, $.param({path: path, all_lines: all_lines}), function(data) {
-        var $pane = that.element.find('.file-pane');
-        $pane.empty();
+      $.ajax( that.options.file_url, {
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader('Authorization', 'Token token='+that.options.api_token);
+        },
+        data: {path: path, all_lines: all_lines},
+        complete: function( jqXHR, textStatus ) {
+          data = jqXHR.responseJSON;
+          var $pane = that.element.find('.file-pane');
+          $pane.empty();
 
-        $("<div class='file-details'>"+$.map({'File': 'basename', 'Size': 'size', 'Lines': 'lines'}, function( data_key,label ) {
-          return "<p class='"+data_key+"'><label>"+label+':</label><span>'+data[data_key]+'</span></p>';
-        }).join('')+'</div>').appendTo($pane);
+          $("<div class='file-details'>"+$.map({'File': 'basename', 'Size': 'size', 'Lines': 'lines'}, function( data_key,label ) {
+            return "<p class='"+data_key+"'><label>"+label+':</label><span>'+data[data_key]+'</span></p>';
+          }).join('')+'</div>').appendTo($pane);
 
-        if (data.truncated) {
-          var $truncated = $("<div class='truncated'><p>Displaying last 500 lines of "+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span></div>").appendTo($pane);
-          $truncated.find('a').click( function() { that._fileClick(path, true); return false; });
-        }
+          if (data.truncated) {
+            var $truncated = $("<div class='truncated'><p>Displaying last 500 lines of "+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span></div>").appendTo($pane);
+            $truncated.find('a').click( function() { that._fileClick(path, true); return false; });
+          }
 
-        if (data.lines == '0') {
-          $("<div><hr/><div class='no-contents'>No contents.</pre></div>").appendTo($pane);
-        } else {
-          $('<div><hr/><pre>'+data.contents+'</pre></div>').appendTo($pane);
+          if (data.lines == '0') {
+            $("<div><hr/><div class='no-contents'>No contents.</pre></div>").appendTo($pane);
+          } else {
+            $('<div><hr/><pre>'+data.contents+'</pre></div>').appendTo($pane);
+          }
         }
       });
     },
