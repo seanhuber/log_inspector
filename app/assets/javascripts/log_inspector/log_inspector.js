@@ -56,6 +56,7 @@
       var $tree = $("<div class='folder-tree'></div>").prependTo(this.element.find('.tree-pane'));
       var that = this;
       $tree.folderTree({
+        api_token: that.options.api_token,
         root: 'log',
         contents_url: that.options.folder_url,
         file_click: function(event, data) { that._fileClick(data.path, false); }

@@ -2,7 +2,7 @@ module LogInspector
   class LogController < ApplicationController
     include ActionView::Helpers::NumberHelper
 
-    before_filter :restrict_access, only: [:file_api]#, :folder_api]
+    before_filter :restrict_access, only: [:file_api, :folder_api]
 
     def file_api
       path = ensure_path :file?
