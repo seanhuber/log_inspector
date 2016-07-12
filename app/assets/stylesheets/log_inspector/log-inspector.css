@@ -13,7 +13,7 @@ html.log-inspector-page > body {
 }
 
 .log-inspector > .tree-pane {
-  width: 400px;
+  width: 300px;
   float: left;
 }
 
@@ -30,4 +30,63 @@ html.log-inspector-page > body {
 .log-inspector > .file-pane {
   overflow-y: auto;
   padding: 10px;
+  text-align: center;
+}
+
+.log-inspector > .file-pane > div {
+  text-align: left;
+}
+
+.log-inspector > .file-pane > .file-details,
+.log-inspector > .file-pane > div:not(.file-details) > p {
+  display: inline-block;
+}
+
+.log-inspector > .file-pane > .file-details {
+  margin-bottom: 10px;
+}
+
+.log-inspector > .file-pane > div > p {
+  margin: 0;
+  line-height: 14px;
+}
+
+.log-inspector > .file-pane hr {
+  margin: 5px 0px;
+}
+
+.log-inspector > .file-pane > div.truncated > a {
+  margin-left: 5px;
+}
+
+.log-inspector > .file-pane > div.truncated > span {
+  font-size: 11px;
+}
+
+.log-inspector > .file-pane > .file-details > p > label {
+  font-size: 12px;
+  min-width: 40px;
+  font-weight: normal;
+}
+
+.log-inspector > .file-pane > .file-details > p.basename > span {
+  font-weight: bold;
+}
+
+.log-inspector > .file-pane pre {
+  font-size: 10px;
+  background-color: white;
+  padding: 10px 5px;
+  border: none;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.log-inspector > .file-pane .no-contents {
+  color: #b33030;
+  text-align: center;
+  padding-top: 100px;
 }

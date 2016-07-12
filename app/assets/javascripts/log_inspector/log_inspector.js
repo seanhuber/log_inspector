@@ -24,19 +24,22 @@
     _fileClick: function(path) {
       var that = this;
       $.get(this.options.file_url, $.param({path: path}), function(data) {
-        console.log(data);
         var $pane = that.element.find('.file-pane');
         $pane.empty();
 
-        $($.map({'File': 'basename', 'Size': 'size', 'Lines': 'lines'}, function( data_key,label ) {
+        $("<div class='file-details'>"+$.map({'File': 'basename', 'Size': 'size', 'Lines': 'lines'}, function( data_key,label ) {
           return "<p class='"+data_key+"'><label>"+label+':</label><span>'+data[data_key]+'</span></p>';
-        }).join('')).appendTo($pane);
+        }).join('')+'</div>').appendTo($pane);
 
         if (data.truncated) {
-          $('<p>Displaying last 500 lines of '+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span>").appendTo($pane); // TODO: add click handler for link
+          $("<div class='truncated'><p>Displaying last 500 lines of "+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span></div>").appendTo($pane); // TODO: add click handler for link
         }
 
-        $('<hr/><pre>'+data.contents+'</pre>').appendTo($pane);
+        if (data.lines == '0') {
+          $("<div><hr/><div class='no-contents'>No contents.</pre></div>").appendTo($pane);
+        } else {
+          $('<div><hr/><pre>'+data.contents+'</pre></div>').appendTo($pane);
+        }
       });
     },
 
