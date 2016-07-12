@@ -21,9 +21,9 @@
       this._initializeFolderTree();
     },
 
-    _fileClick: function(path) {
+    _fileClick: function(path, all_lines) {
       var that = this;
-      $.get(this.options.file_url, $.param({path: path}), function(data) {
+      $.get(that.options.file_url, $.param({path: path, all_lines: all_lines}), function(data) {
         var $pane = that.element.find('.file-pane');
         $pane.empty();
 
@@ -32,7 +32,8 @@
         }).join('')+'</div>').appendTo($pane);
 
         if (data.truncated) {
-          $("<div class='truncated'><p>Displaying last 500 lines of "+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span></div>").appendTo($pane); // TODO: add click handler for link
+          var $truncated = $("<div class='truncated'><p>Displaying last 500 lines of "+data.basename+".</p><a href='#'>Show all lines</a> <span class='disp-all-caption'>(This may respond slowly)</span></div>").appendTo($pane);
+          $truncated.find('a').click( function() { that._fileClick(path, true); });
         }
 
         if (data.lines == '0') {
@@ -49,7 +50,7 @@
       $tree.folderTree({
         root: 'log',
         contents_url: that.options.folder_url,
-        file_click: function(event, data) { that._fileClick(data.path); }
+        file_click: function(event, data) { that._fileClick(data.path, false); }
       });
     },
   });

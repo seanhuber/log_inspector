@@ -11,7 +11,7 @@ module LogInspector
         path:     path,
         size:     number_to_human_size(File.size(path))
       }
-      resp_h[:truncated] = resp_h[:lines] > 500 && !params[:all_lines].present?
+      resp_h[:truncated] = resp_h[:lines] > 500 && params[:all_lines] != 'true'
       resp_h[:lines] = number_with_delimiter resp_h[:lines]
       resp_h[:contents] = resp_h[:truncated] ? `tail -n 500 "#{path}"` : File.read(path)
 
