@@ -11,8 +11,6 @@ spec/dummy/db/test.sqlite3
 
 spec/dummy/db/development.sqlite3
 
-Gemfile.lock
-
 spec/dummy/tmp/pids/server.pid
 
 spec/dummy/config/secrets.yml
