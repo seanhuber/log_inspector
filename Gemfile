@@ -14,6 +14,7 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem 'puma'
+gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'capistrano',         require: false
