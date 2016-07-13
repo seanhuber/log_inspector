@@ -38,7 +38,7 @@ module LogInspector
     def ensure_path file_method
       path = params.require(:path).split '/'
       raise ArgumentError, "Expected path to start with 'log/' but received: #{path.join('/')}" unless path[0] == 'log'
-      path[0] = Rails.root.join 'log'
+      path[0] = LogInspector.log_path || Rails.root.join('log')
       path = path.join '/'
       raise ArgumentError, "Bad path: #{path}" unless File.send file_method, path
       path
