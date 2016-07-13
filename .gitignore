@@ -8,3 +8,13 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 
 *.log
+
+*.cache
+
+spec/dummy/db/test.sqlite3
+
+spec/dummy/db/development.sqlite3
+
+Gemfile.lock
+
+spec/dummy/tmp/pids/server.pid

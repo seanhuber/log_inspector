@@ -28,8 +28,8 @@ module LogInspector
       render json: resp_h
     end
 
+    # TODO: document restricting access: http://guides.rubyonrails.org/routing.html#advanced-constraints
     def index
-      @api_token = LogInspector::Encryptor.api_token
       render 'log_inspector/index'
     end
 
