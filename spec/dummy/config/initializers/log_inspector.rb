@@ -1,3 +1,1 @@
-# if Rails.env.production?
-  LogInspector.log_path = Rails.root.join 'demo_logs'
-# end
+LogInspector.log_path = Rails.root.join 'demo_logs' unless Rails.env.test?
