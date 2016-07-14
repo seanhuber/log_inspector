@@ -15,6 +15,7 @@ gemspec
 
 gem 'puma'
 gem 'uglifier', '>= 1.3.0'
+gem 'sqlite3'
 
 group :development do
   gem 'capistrano',         require: false
