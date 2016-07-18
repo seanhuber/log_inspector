@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Restart your rails server and navigate to http://localhost:3000/log_inspector
+Restart your rails server and navigate to <http://localhost:3000/log_inspector>
 
 Click on subfolders to expend them and click on text-based files to view their contents in the preview pane.
 
@@ -80,7 +80,7 @@ In `app/assets/javascripts/application.js`, add:
 //= require log_inspector/log_inspector
 ```
 
-Then in an `erb` view file, render `log_inspector` primary partial:
+Then in an `erb` view file, render `log_inspector`'s primary partial:
 
 ```
 <%= render partial: 'log_inspector/panes' %>
@@ -100,7 +100,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Or if you do want the engine enabled in production but wish to limit access to specific users with something like:
+Or if you do want the engine enabled in production and wish to limit access to specific users, try a strategy like this:
 
 ```ruby
 Rails.application.routes.draw do
