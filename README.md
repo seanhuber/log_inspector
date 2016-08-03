@@ -21,9 +21,9 @@ Unix based operating system (Apple OSX or Linux).
 
   > The unix commands `wc` and `tail` are used to get log file contents and line counts.
 
-Rails ~> 4.0
+Rails >= 4.0
 
-  > This engine was developed with Rails 4.2 but should work any 4.x variant of Rails.
+  > This engine was developed with Rails 4.2, should work with any 4.x variant of Rails, and has been tested to work with Rails 5.0.
 
 jQuery and jQuery-ui.
 
