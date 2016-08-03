@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
   s.homepage   = 'https://github.com/seanhuber/log_inspector'
   s.summary    = 'Rails Engine with routes for displaying logfile contents.'
   s.license    = 'MIT'
-  s.files      = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.files      = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '~> 4.0'
+  s.add_dependency 'rails', '>= 4.0'
   s.add_development_dependency 'sqlite3', '~> 1.3'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
