@@ -2,7 +2,7 @@ module LogInspector
   class Encryptor
     def self.api_token enc_token = nil
       key_base = Rails.application.secrets[:secret_key_base][0..20]
-      passphrase = ActiveSupport::KeyGenerator.new(key_base).generate_key(key_base)
+      passphrase = ActiveSupport::KeyGenerator.new(key_base).generate_key(key_base, 32)
       encryptor = ActiveSupport::MessageEncryptor.new(passphrase)
 
       if enc_token

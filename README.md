@@ -21,9 +21,9 @@ Unix based operating system (Apple OSX or Linux).
 
   > The unix commands `wc` and `tail` are used to get log file contents and line counts.
 
-Rails >= 4.0
+Rails >= 4.2
 
-  > This engine was developed with Rails 4.2, should work with any 4.x variant of Rails, and has been tested to work with Rails 5.0.
+  > This engine was developed with Rails 4.2 and has been tested to work with Rails 5.0.x and 5.1.x.
 
 jQuery and jQuery-ui.
 
@@ -36,7 +36,7 @@ Installation
 Add to your `Gemfile`:
 
 ```ruby
-gem 'log_inspector', '~> 1.0'
+gem 'log_inspector', '~> 1.1.0'
 ```
 
 Then, `bundle install`.
