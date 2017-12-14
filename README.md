@@ -36,7 +36,7 @@ Installation
 Add to your `Gemfile`:
 
 ```ruby
-gem 'log_inspector', '~> 1.1.0'
+gem 'log_inspector', '~> 1.1.1'
 ```
 
 Then, `bundle install`.
