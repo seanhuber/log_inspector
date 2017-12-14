@@ -11,7 +11,9 @@ module LogInspector
     engine_name 'log_inspector'
 
     initializer 'log_inspector.assets.precompile' do |app|
-      app.config.assets.precompile += ['folder-tree.js', 'log_inspector.js', 'folder-tree.css', 'log-inspector.css']
+      if app.config.respond_to? :assets
+        app.config.assets.precompile += ['folder-tree.js', 'log_inspector.js', 'folder-tree.css', 'log-inspector.css']
+      end
     end
   end
 end
