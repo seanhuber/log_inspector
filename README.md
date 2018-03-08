@@ -1,3 +1,7 @@
+[![Gem Version](https://badge.fury.io/rb/log_inspector.svg)](https://badge.fury.io/rb/log_inspector)
+[![Build Status](https://travis-ci.org/seanhuber/log_inspector.svg?branch=master)](https://travis-ci.org/seanhuber/log_inspector)
+[![Coverage Status](https://coveralls.io/repos/github/seanhuber/log_inspector/badge.svg?branch=master)](https://coveralls.io/github/seanhuber/log_inspector?branch=master)
+
 log_inspector
 ==============
 
@@ -36,7 +40,7 @@ Installation
 Add to your `Gemfile`:
 
 ```ruby
-gem 'log_inspector', '~> 1.1.1'
+gem 'log_inspector', '~> 1.1.2'
 ```
 
 Then, `bundle install`.
