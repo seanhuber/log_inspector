@@ -3,3 +3,4 @@ language: ruby
 rvm:
   - 2.2.4
 before_install: gem install bundler -v 1.16.0
+script: xvfb-run bundle exec rake
